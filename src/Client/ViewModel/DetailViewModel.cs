@@ -86,12 +86,12 @@ namespace WpfTest.ViewModel
                 _commandProvider.Update(_employee);
             }
 
-            Messenger.Default.Send(new CloseMessage());
+            Messenger.Default.Send(new CloseMessage(isNeedUpdate));
         }
 
         private void OnCancel()
         {
-            Messenger.Default.Send(new CloseMessage());
+            Messenger.Default.Send(new CloseMessage(false));
         }
     }
 }

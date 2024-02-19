@@ -7,6 +7,11 @@
     {
         public EmployeeVm Employee { get; }
 
+        /// <summary>
+        /// Результат обработки сообщения
+        /// </summary>
+        public bool IsNeedReloadDataOut { get; set; }
+
         public OpenDetailMessage(EmployeeVm employee)
         {
             Employee = employee;

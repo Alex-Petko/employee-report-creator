@@ -103,8 +103,17 @@ namespace WpfTest.ViewModel
 
         private void OnDoubleClick()
         {
-            Messenger.Default.Send(new OpenDetailMessage(SelectedItem));
-            OnLoad();
+            if (SelectedItem == null)
+                return;
+
+            var msg = new OpenDetailMessage(SelectedItem);
+
+            Messenger.Default.Send(msg);
+
+            if (msg.IsNeedReloadDataOut)
+                OnLoad();
+
+            SelectedItem = null;
         }
     }
 }

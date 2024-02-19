@@ -8,6 +8,9 @@ namespace WpfTest
 {
     public partial class MainWindow : Window
     {
+        private const string MainControlName = "Main";
+        private const string DockPanelName = "DockPanel";
+
         private readonly Control _mainContent;
         private readonly DockPanel _dockPanel;
         private readonly Loading _loading;
@@ -19,8 +22,8 @@ namespace WpfTest
             Messenger.Default.Register<StartLoagingMessage>(this, OnStartLoagingMessage);
             Messenger.Default.Register<FinishLoadingMessage>(this, OnFinishLoagingMessage);
 
-            _mainContent = (Control)FindName("Main");
-            _dockPanel = (DockPanel)FindName("DockPanel");
+            _mainContent = (Control)FindName(MainControlName);
+            _dockPanel = (DockPanel)FindName(DockPanelName);
             _loading = new Loading();
         }
 
@@ -32,7 +35,7 @@ namespace WpfTest
             window.DataContext = model;
             model.Load(msg.Employee);
 
-            window.ShowDialog();
+            msg.IsNeedReloadDataOut = window.ShowDialog().Value;
         }
 
         private void OnStartLoagingMessage(StartLoagingMessage msg)

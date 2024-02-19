@@ -8,7 +8,7 @@
         Title="Detail" ResizeMode="NoResize" Height="200" Width="253">
     <Grid>
         <Label Content="Фамилия" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-        <TextBox Text="{Binding Name}"  TextWrapping="Wrap" Width="120" MaxLength="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="111,14,0,0"/>
+        <TextBox Text="{Binding Name}"  TextWrapping="NoWrap" Width="120" MaxLength="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="111,14,0,0"/>
 
         <Label Content="Подразделение" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,36,0,0"/>
         <ComboBox SelectedItem="{Binding SelectedSubdivision}" ItemsSource="{Binding Subdivisions}" DisplayMemberPath="Name" SelectedValuePath="SubdivisionId"  Width="120" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="111,40,0,0" />
@@ -17,7 +17,7 @@
         <ComboBox SelectedItem="{Binding SelectedPosition}" ItemsSource="{Binding Positions}" DisplayMemberPath="Name" SelectedValuePath="PositionId" Width="120" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="111,66,0,0"/>
 
         <Label Content="Оклад" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,88,0,0"/>
-        <TextBox Text="{Binding Salary}"  TextWrapping="Wrap" Width="120" MaxLength="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="111,92,0,0"/>
+        <TextBox Name="SalaryTextBox" Text="{Binding Salary}" TextWrapping="NoWrap" Width="120" MaxLength="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="111,92,0,0" TextChanged="OnTextChanged"/>
 
         <Button Content="Сохранить" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" RenderTransformOrigin="-0.024,1.446" Command="{Binding SaveCommand }"/>
         <Button Content="Отмена" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Command="{ Binding CancelCommand }"/>

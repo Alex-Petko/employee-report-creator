@@ -21,15 +21,12 @@ namespace WpfTest
 
         public void Print<T>(IEnumerable<T> items)
         {
-            if (!items.Any())
-            {
-                return;
-            }
-
             using (var excelPackage = new ExcelPackage())
             {
                 var workSheet = excelPackage.Workbook.Worksheets.Add(WorksheetName);
-                workSheet.Cells[StartCellAddress].LoadFromCollection(items);
+
+                if (items.Any())
+                    workSheet.Cells[StartCellAddress].LoadFromCollection(items);
 
                 var path = Path.Combine(_configurations.ExcelOutputPath, $"{_configurations.ExcelOutputFileName}.{OutputFileExtension}");
                 excelPackage.SaveAs(path);

@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-<h3 align="center">WpfTest</h3>
+<h3 align="center">Employee Report Creator</h3>
   <p align="center">
     Тестовое задание
   </p>
@@ -19,6 +19,13 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li>
+          <a href="#task-conditions">Task Conditions</a>
+          <ul>
+            <li><a href="#part-1">Part 1. Design a database</a></li>
+            <li><a href="#part-2">Part 2. Develop an application</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#license">License</a></li>
@@ -56,6 +63,50 @@ GRANT CONNECT, RESOURCE, DBA TO YOUR_USER_ID
   
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
+
+### Task Conditions
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+#### Part 1. Design a database
+
+Design a database for the following subject area:
+1) Employee (name, subdivision, position, salary)
+2) Subdivision (name, city)
+  
+DBMS: Oracle
+DDL with initial filling of data (3-4 entries per table)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+#### Part 2. Develop an application
+
+Write software in C# (.NET Framework 4.8 + MVVMLight + EpPlus + Oracle Management Data Provider)
+Application Type: WPF Desktop Application (MVVM).
+
+The main screen form is a list one.
+Control elements (from left to right, top to bottom): search text field, Load button, Print button, Close button, DataGrid in ReadOnly mode, StatusBar.
+The search text field affects the selection of the fields “Name”, “Name of division”, “City”, Case-Insentive
+The "Load" button loads data according to the filter conditions, loading is performed in the background (using BackgroundWorker, disable controls during loading, replace DataGrid with a loading icon).
+The "Print" button prints the displayed data to an .xlsx file using EpPlus.
+The "Close" button closes the application.
+The DataGrid displays all data except the keys.
+The StatusBar displays the number of records, or the corresponding record if the selection is empty.
+
+An additional screen form (Detail), opens by double-clicking on an entry in the DataGrid, modal.
+Allows you to edit information about an employee (Name, Division, Position, Salary).
+After saving the information, the parent form reloads the information.
+
+The code must comply with generally accepted market quality criteria for code (naming rules, structure, documentation, etc.).
+
+Additions: authorization data can be hardcoded.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- LICENSE -->

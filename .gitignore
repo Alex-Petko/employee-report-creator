@@ -192,3 +192,4 @@ bin
 obj
 .vs
 src/Client/packages
+src/packages
